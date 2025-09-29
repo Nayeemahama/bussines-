@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bujji Collection - Bringing Happiness, One Pet at a Time</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff8f0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #ff8c42, #ffa726);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .paw-icon {
+            width: 30px;
+            height: 30px;
+            background: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ff8c42;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #fff3cd;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #fff8f0, #f0f8ff);
+            padding: 150px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: #7dd3c0;
+            border-radius: 50%;
+            top: 20%;
+            right: 10%;
+            opacity: 0.3;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background: #7dd3c0;
+            border-radius: 50%;
+            bottom: 20%;
+            left: 15%;
+            opacity: 0.4;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: #4a4a4a;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff8c42, #ff6b35);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(255, 140, 66, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 140, 66, 0.4);
+        }
+        
+        .pet-illustrations {
+            margin-top: 60px;
+            display: flex;
+            justify-content: center;
+            gap: 100px;
+        }
+        
+        .pet {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            animation: bounce 2s infinite;
+        }
+        
+        .cat {
+            background: linear-gradient(135deg, #ffa726, #ff8c42);
+            animation-delay: 0s;
+        }
+        
+        .dog {
+            background: linear-gradient(135deg, #ffb74d, #ffa726);
+            animation-delay: 0.5s;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-20px); }
+            60% { transform: translateY(-10px); }
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+        
+        .feature {
+            text-align: center;
+            padding: 40px 20px;
+            border-radius: 20px;
+            background: #fff;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .feature:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #7dd3c0, #56c596);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .feature h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .feature p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        /* Products Section */
+        .products {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #fff8f0, #f8f9ff);
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 50px;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .product {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .product:hover {
+            transform: translateY(-10px);
+        }
+        
+        .product-image {
+            height: 250px;
+            background: linear-gradient(135deg, #ff8c42, #ffa726);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            position: relative;
+        }
+        
+        .product-content {
+            padding: 30px;
+        }
+        
+        .product h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .product p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ff8c42;
+            margin-bottom: 20px;
+        }
+        
+        .product-button {
+            background: linear-gradient(135deg, #7dd3c0, #56c596);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .product-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(125, 211, 192, 0.3);
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .service {
+            padding: 40px 30px;
+            border-radius: 15px;
+            background: linear-gradient(135deg, #f8f9ff, #fff8f0);
+            border-left: 5px solid #ff8c42;
+        }
+        
+        .service h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .service p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .service-price {
+            font-weight: bold;
+            color: #ff8c42;
+            font-size: 1.2rem;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #ff8c42, #ffa726);
+            color: white;
+            text-align: center;
+        }
+        
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .contact-item {
+            padding: 30px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .contact-item h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .pet-illustrations {
+                gap: 50px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <div class="paw-icon">🐾</div>
+                BUJJI COLLECTION
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>BUJJI COLLECTION</h1>
+                <p>Bringing Happiness, One Pet at a Time</p>
+                <a href="#products" class="cta-button">Shop Now</a>
+                
+                <div class="pet-illustrations">
+                    <div class="pet cat">🐱</div>
+                    <div class="pet dog">🐶</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon">🐾</div>
+                    <h3>Cute Pets</h3>
+                    <p>Explore our collection of adorable pets</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🕐</div>
+                    <h3>24/7 Service</h3>
+                    <p>We're here for you, around the clock</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📦</div>
+                    <h3>Safe Delivery</h3>
+                    <p>Secure and reliable shipping</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🌍</div>
+                    <h3>Worldwide Network</h3>
+                    <p>Connecting pet lovers globally</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="section-title">Our Premium Products</h2>
+            <div class="products-grid">
+                <div class="product">
+                    <div class="product-image">🦮</div>
+                    <div class="product-content">
+                        <h3>Premium Dog Food</h3>
+                        <p>High-quality nutrition for your furry friend with organic ingredients and vitamins.</p>
+                        <div class="price">₹1,299 - ₹2,499</div>
+                        <button class="product-button">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="product">
+                    <div class="product-image">🐱</div>
+                    <div class="product-content">
+                        <h3>Cat Essentials Kit</h3>
+                        <p>Complete starter kit including food, toys, litter box, and grooming supplies.</p>
+                        <div class="price">₹899 - ₹1,899</div>
+                        <button class="product-button">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="product">
+                    <div class="product-image">🦴</div>
+                    <div class="product-content">
+                        <h3>Interactive Toys</h3>
+                        <p>Fun and engaging toys to keep your pets active and entertained all day long.</p>
+                        <div class="price">₹299 - ₹799</div>
+                        <button class="product-button">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="product">
+                    <div class="product-image">🏠</div>
+                    <div class="product-content">
+                        <h3>Cozy Pet Beds</h3>
+                        <p>Comfortable and washable beds in various sizes for the perfect pet rest.</p>
+                        <div class="price">₹699 - ₹1,999</div>
+                        <button class="product-button">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="product">
+                    <div class="product-image">🧼</div>
+                    <div class="product-content">
+                        <h3>Grooming Supplies</h3>
+                        <p>Professional-grade brushes, shampoos, and nail clippers for pet hygiene.</p>
+                        <div class="price">₹399 - ₹1,299</div>
+                        <button class="product-button">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <div class="product">
+                    <div class="product-image">🦜</div>
+                    <div class="product-content">
+                        <h3>Bird Care Package</h3>
+                        <p>Everything you need for your feathered friends including cages, food, and toys.</p>
+                        <div class="price">₹1,499 - ₹3,999</div>
+                        <button class="product-button">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service">
+                    <h3>Pet Grooming</h3>
+                    <p>Professional grooming services including bathing, nail trimming, and styling.</p>
+                    <div class="service-price">Starting from ₹500</div>
+                </div>
+                
+                <div class="service">
+                    <h3>Veterinary Consultation</h3>
+                    <p>Expert health checkups and medical consultations for your beloved pets.</p>
+                    <div class="service-price">Starting from ₹300</div>
+                </div>
+                
+                <div class="service">
+                    <h3>Pet Training</h3>
+                    <p>Basic obedience and behavioral training sessions for dogs and cats.</p>
+                    <div class="service-price">Starting from ₹1,000</div>
+                </div>
+                
+                <div class="service">
+                    <h3>Pet Boarding</h3>
+                    <p>Safe and comfortable boarding facilities when you're away from home.</p>
+                    <div class="service-price">Starting from ₹400/day</div>
+                </div>
+                
+                <div class="service">
+                    <h3>Pet Photography</h3>
+                    <p>Professional photo sessions to capture your pet's precious moments.</p>
+                    <div class="service-price">Starting from ₹2,000</div>
+                </div>
+                
+                <div class="service">
+                    <h3>Home Delivery</h3>
+                    <p>Fast and secure delivery of all pet products right to your doorstep.</p>
+                    <div class="service-price">FREE above ₹999</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Get in Touch</h2>
+            <p>We're here to help you and your pets live happier lives!</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>📞 Phone</h3>
+                    <p>Nayeem: +91 9059784448</p>
+                    <p>Greeshma (Bujji): +91 7799303907</p>
+                </div>
+                
+                <div class="contact-item">
+                    <h3>📧 Email</h3>
+                    <p>info@bujjicollection.com</p>
+                    <p>support@bujjicollection.com</p>
+                </div>
+                
+                <div class="contact-item">
+                    <h3>📍 Location</h3>
+                    <p>123 Pet Street</p>
+                    <p>Hyderabad, Telangana 500001</p>
+                </div>
+                
+                <div class="contact-item">
+                    <h3>🕒 Working Hours</h3>
+                    <p>Mon-Sat: 9:00 AM - 8:00 PM</p>
+                    <p>Sunday: 10:00 AM - 6:00 PM</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Bujji Collection. All rights reserved. | Made with ❤️ for pets and their families</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add to cart functionality
+        document.querySelectorAll('.product-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const productName = this.parentElement.querySelector('h3').textContent;
+                alert(`Added "${productName}" to your cart! 🛒\n\nThank you for choosing Bujji Collection!`);
+                
+                // Add some animation
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 150);
+            });
+        });
+
+        // Header background change on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 140, 66, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #ff8c42, #ffa726)';
+                header.style.backdropFilter = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
